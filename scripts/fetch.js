@@ -17,8 +17,9 @@ function PeopleID (){
        console.log(People)
    })
 }
+
 PeopleID();
 
-GetId.addEventListener('click', () =>{
+// GetId.addEventListener('click', () =>{
 
-});
+// });
