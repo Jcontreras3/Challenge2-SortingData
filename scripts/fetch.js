@@ -1,4 +1,4 @@
-
+let People = [];
 
 let InjectHere = document.getElementById('InjectHere');
 
@@ -57,7 +57,59 @@ function Create(Idx){
     
 }
 
-export{Create, InjectHere}
+let FirstArr = [];
+function GetFirstName(){
+    fetch("../data/data.json")
+    .then(resp => resp.json())
+    .then(data => {
+        People = data.People;
+        let orderOfList = People.map(obj => obj.FirstName).sort();
+        for(let i = 0; i< People.length; i++)
+        {
+            for(let j = 0; j< orderOfList.length; j++)
+            {
+               if(People[j].FirstName == orderOfList[i])
+               {
+                   FirstArr.push(People[j]);
+               }
+            }
+        }
+        let newSet = new Set(FirstArr);
+        let FArray = Array.from(newSet.values())
+
+        for( let i = 0; i<FArray.length; i++){
+            Create(FArray[i]);
+        };
+    })
+}
+
+let FrevArr = [];
+function GetFirstRev(){
+    fetch("../data/data.json")
+    .then(resp => resp.json())
+    .then(data => {
+        People = data.People.reverse();
+        let orderOfList = People.map(obj => obj.FirstName).sort();
+        for(let i = 0; i< People.length; i++)
+        {
+            for(let j = 0; j< orderOfList.length; j++)
+            {
+               if(People[j].FirstName == orderOfList[i])
+               {
+                   FrevArr.push(People[j]);
+               }
+            }
+        }
+        let newSet = new Set(FrevArr);
+        let RArray = Array.from(newSet.values())
+
+        for( let i = 0; i<RArray.length; i++){
+            Create(RArray[i]);
+        };
+    })
+}
+
+export{Create, InjectHere,GetFirstName,GetFirstRev}
 // GetId.addEventListener('click', () =>{
 
 // });

@@ -1,11 +1,11 @@
-import {Create, InjectHere} from "./fetch.js"
+import {Create, InjectHere,GetFirstName,GetFirstRev} from "./fetch.js"
 
-let GetId = document.getElementById('GetId');
-let First = document.getElementById('First');
-let Last = document.getElementById('Last');
-let GetEmail = document.getElementById('GetEmail');
-let GetHeight = document.getElementById('GetHeight');
-let GetAge = document.getElementById('GetAge');
+// let GetId = document.getElementById('GetId');
+// let First = document.getElementById('First');
+// let Last = document.getElementById('Last');
+// let GetEmail = document.getElementById('GetEmail');
+// let GetHeight = document.getElementById('GetHeight');
+// let GetAge = document.getElementById('GetAge');
 let Btn1 = document.getElementById('Btn1');
 let Btn2 = document.getElementById('Btn2');
 let Btn3 = document.getElementById('Btn3');
@@ -19,7 +19,6 @@ let Btn10 = document.getElementById('Btn10');
 let Btn11 = document.getElementById('Btn11');
 let Btn12 = document.getElementById('Btn12');
 
-let People = [];
  function getPeople(){
     fetch("../data/data.json")
     .then (response => response.json())
@@ -34,7 +33,7 @@ let People = [];
 }
 //getPeople()
 
-function PeopleID (){ 
+function PeopleRev (){ 
         fetch("../data/data.json")
         .then((resp) => resp.json())
         .then((data) =>{
@@ -49,9 +48,17 @@ function PeopleID (){
 
 Btn1.addEventListener('click', () =>{
     getPeople();
-    console.log("Hi")
+    // console.log("Hi")
 })
 
 Btn2.addEventListener('click', () =>{
-    PeopleID();
+    PeopleRev();
+});
+
+Btn3.addEventListener('click', () =>{
+    GetFirstName();
+    console.log("Hit")
+})
+Btn4.addEventListener('click', () =>{
+    GetFirstRev();
 })
