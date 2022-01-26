@@ -1,5 +1,5 @@
 import {Create, InjectHere,GetFirstName,GetFirstRev} from "./fetch.js"
-
+let People = []
 // let GetId = document.getElementById('GetId');
 // let First = document.getElementById('First');
 // let Last = document.getElementById('Last');
